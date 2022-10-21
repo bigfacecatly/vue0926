@@ -24,10 +24,9 @@
           <el-tag type="success" size="mini" v-else-if="scope.row.cate_level === 1">二级</el-tag>
           <el-tag v-else type="warning">三级</el-tag>
         </template>
-        <template slot="opt" slot-scope="scope">
+        <template slot="opt">
           <el-button type="primary" icon="el-icon-edit" size="mini">编辑</el-button>
           <el-button type="danger" icon="el-icon-delete" size="mini">删除</el-button>
-          {{ scope.row }}
         </template>
       </tree-table>
 
@@ -83,7 +82,7 @@ export default {
       columns: [
         {
           label: '分类名称',
-          porp: 'cate_name'
+          prop: 'cate_name'
         },
         {
           label: '是否有效',
@@ -130,6 +129,7 @@ export default {
       if (res.meta.status !== 200) return this.$message.error('获取商品分类失败')
       this.catelist = res.data.result
       this.total = res.data.total
+      console.log(this.catelist)
     },
     showAddCateDialog () {
       this.getParentCateList()
@@ -185,5 +185,8 @@ export default {
 <style lang="less" scoped>
   .treeTable {
     margin-top: 15px;
+  }
+  .el-cascader {
+    width: 100%
   }
 </style>

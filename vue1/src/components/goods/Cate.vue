@@ -27,7 +27,7 @@
         <!-- 排序 -->
         <template slot="order" slot-scope="scope">
           <el-tag size="mini" v-if="scope.row.cate_level === 0">一级</el-tag>
-          <el-tag type="success" v-else-if="scope.row.cate_level === 1">二级</el-tag>
+          <el-tag type="success" size="mini" v-else-if="scope.row.cate_level === 1">二级</el-tag>
           <el-tag type="warning" v-else>三级</el-tag>
         </template>
         <!-- 操作 -->
